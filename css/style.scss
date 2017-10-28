@@ -1,0 +1,355 @@
+@import "fonts";
+@import "variables";
+// ========== EXTENDS ========== //
+%LatoRegular{
+	font-family: "LatoRegular";
+}
+%LatoMedium{
+	font-family: "LatoMedium";
+}
+%LatoSemibold{
+	font-family: "LatoSemibold";
+}
+%OpenSansRegular{
+    font-family: "OpenSansRegular";
+}
+
+%border-blocks{
+    background-color: #fafafb;
+    border: 2px solid #d2dae1;
+    border-radius: 2px;
+}
+
+@mixin nav-icons($url, $bg-percent){
+    padding-right: 3rem;
+    padding-left: 4.7rem;
+    background: url($url) no-repeat $bg-percent center;
+}
+
+.btn{
+    padding: .9rem 1.5rem;
+    background-color: $btn-common-clr;
+    color: #fff;
+    &:hover{
+        background-color: $btn-common-clr * 1.1;
+        transition: all .4s;
+    }
+}
+// ========== EXTENDS END ========== //
+
+// ========== COMMON STYLES ========== //
+*{
+	list-style: none;
+}
+
+html, body{
+	font-size: 10px;
+    color: $main-clr;
+}
+
+ul, li, p, h1, h2, h3, h4, h5, h6{
+	margin: 0;
+    padding: 0;
+}
+
+a{
+    color: $main-clr;
+    &:hover{
+        text-decoration: none;
+        color: $btn-buy-clr;
+        transition: all .4s;
+    }
+}
+
+button, input, textarea, select{
+	border-radius: $border-radius;
+    border: none;
+}
+
+button, input[type="submit"]:hover{
+    background-color: $btn-common-clr * 1.5;
+}
+
+.hamburger, .personal{
+    display: none;
+}
+
+.container{
+	max-width: 1160px;
+}
+// ========== COMMON STYLES END ========== //
+
+.header{
+    &__inner{
+        padding-bottom: 3.1rem;
+        position: relative;
+    }
+}
+
+.navMenu{
+    display: none;
+}
+
+.navWrap{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+    @extend %LatoRegular;
+}
+
+.nav{
+    display: flex;
+    border-bottom: 1px solid $border-clr-nav;
+    font-size: 1.3rem;
+    &__logo{
+        flex-basis: 220px;
+        position: relative;
+        margin: 0 1.5rem 0 0;
+        img{
+            position: absolute;
+        }
+    } 
+    &__items{
+        
+    }
+    &__link{
+        display: flex;
+        padding: 0 1rem;
+        padding-top: 1.2rem;
+        padding-bottom: 1.2rem;
+        border-radius: $border-radius;
+        &:hover{
+            color: $btn-buy-clr;
+        }
+    }
+    &__link_enter, &__link_favorites, &__link_basket{
+        &:hover{
+            background-color: $btn-buy-clr;
+            color: #fff;
+        }
+    }
+    &__link_enter{
+        @include nav-icons('../img/simplatest.png', 25%);
+        &:hover{
+        background: url(../img/simplates-whitet.png) no-repeat 25% center;
+        background-color: $btn-buy-clr;
+        }
+    }
+    &__link_favorites{
+        @include nav-icons('../img/heart.png', 20%);
+        &:hover{
+        background: url(../img/heart-white.png) no-repeat 20% center;
+        background-color: $btn-buy-clr;
+        }
+    }
+    &__link_basket{
+        @include nav-icons('../img/basket.png', 20%);
+        &:hover{
+        background: url(../img/basket-white.png) no-repeat 20% center;
+        background-color: $btn-buy-clr;
+        }
+    }
+}
+
+.inf{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3.4rem;
+    @extend %LatoRegular;
+}
+
+.phones{
+    &__num{
+        font-size: 1.8rem;
+        & + span{
+            margin-left: 1rem;
+        }
+    }
+    &__btn{
+        @extend .btn;
+        display: block;
+        margin-top: 1rem;
+    }
+}
+
+.search{
+    &__inp{
+        display: flex;
+        width: 150px;
+        border: 1px solid $border-clr-nav;
+        border-radius: 20px;
+        padding: .8rem 0 .8rem 3rem;
+        background: url(../img/search.png) no-repeat 6% center;
+    }
+}
+
+.details{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 2.8rem;
+    border-top: 1px solid $border-clr-nav;
+    border-bottom: 2px solid $border-clr-nav;
+    padding: 1rem 0;
+    font-size: 1.6rem;
+    @extend %LatoMedium;
+}
+
+.place{
+    font-size: 1.3rem;
+    @extend %OpenSansRegular;
+}
+
+.pgwSlider__link{
+    display: block;
+    font-size: 5rem;
+    color: #8bc33b;
+    cursor: pointer;
+}
+
+.contentRight{
+    @extend %OpenSansRegular;
+    &__h3{
+        margin-bottom: 1.5rem;
+        font-size: 1.4rem;
+        color: $btn-buy-clr;
+    }
+    &__h2{
+        margin-bottom: 2.5rem;
+        font-size: 2.4rem;
+    }
+    &__sizes{
+        margin-bottom: 2rem;
+        font-size: 1.3rem;
+    }
+}
+
+.price{
+    &__sum1{
+        font-size: 2.2rem;
+    }
+    &__bill{
+        font-size: 1.6rem;
+    }
+    &__sum2{
+        text-decoration: line-through;
+        font-size: 1.3rem;
+        color: #999;
+    }
+}
+
+.social{
+    margin-bottom: 2.5rem;
+}
+
+.stars{
+    &__inner{
+        color: $btn-buy-clr;
+    }
+    &__link{
+        text-decoration: underline;
+        font-size: 1.3rem;
+    }
+}
+
+.icons{
+    &__link{
+        margin-right: .6rem;
+        &:last-child{
+            margin-right: 0;
+        }
+    }
+}
+
+.sizes{
+    margin-bottom: 2.5rem;
+    font-size: 0;
+    &__square{
+        display: inline-block;
+        margin-right: 1rem;
+        border: 1px solid #ccc;
+        font-size: 0;
+        &:last-child{
+            margin-right: 0;
+        }
+        &:hover{
+            border: 1px solid $btn-buy-clr;
+        }
+    }
+    &__link{
+        display: inline-block;
+        padding: 1.2rem 1.4rem;
+        font-size: 1.3rem;
+    }
+}
+
+.offer{
+    margin-bottom: 2.5rem;
+}
+
+.goods{
+    &__have, &__code{
+        margin-bottom: 2rem;
+    }
+    &__have{
+        font-size: 1.3rem;
+        color: $btn-buy-clr;
+    }
+    &__code{
+        font-size: 1.3rem;
+    }
+    &__btn, &__heart{
+        margin-top: 1rem;        
+    }
+    &__btn{
+        margin-right: 2.5rem;
+        padding: 1.4rem 5rem;
+        color: #fff;
+        font-size: 1.4rem;
+        text-transform: uppercase;
+        letter-spacing: .1rem;
+        background-color: $btn-buy-clr;
+        &:hover{
+        background-color: $btn-buy-clr * 1.5;
+        transition: all .4s;
+        }
+    }
+}
+
+.get{
+    &__free, &__garant{
+        font-size: 1.3rem;
+        text-decoration: underline;
+    }
+    &__free{
+        margin-bottom: 1rem;
+    }
+}
+
+.discribe{
+    &__caption{
+        @extend %LatoSemibold;
+        margin-bottom: 1rem;
+        font-size: 1.6rem;
+    }
+    &__text{
+        font-size: 1.3rem;
+    }
+    &__text_all{
+        display: none;
+    }
+    &__link{
+        display: inline-block;
+        margin-top: 1.5rem;
+        font-size: 1.3rem;
+        text-decoration: underline;
+        color: $btn-buy-clr;
+        &:hover{
+            color: $btn-buy-clr * 1.5;
+        }
+    }
+}
+
+@import 'media';
